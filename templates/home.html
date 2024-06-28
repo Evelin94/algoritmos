@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Clientes y Pedidos</title>
+</head>
+<body>
+    <h1>Lista de Clientes y Pedidos</h1>
+    <ul>
+        {% for customer in customers %}
+            <li>
+                {{ customer.name }} ({{ customer.email }})
+                <ul>
+                    {% for order in customer.orders %}
+                        <li>Pedido ID: {{ order.id }}, Fecha: {{ order.date_ordered }}, Total: {{ order.total_amount }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
